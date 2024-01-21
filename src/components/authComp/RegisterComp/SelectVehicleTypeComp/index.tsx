@@ -48,7 +48,7 @@ const SelectvehicleType = () => {
       <View>
         <CustomButton
           primary
-          title="Continue"
+          title="Continue34"
           onPress={() => {
             navigation.navigate("AccountCreatedScreen");
           }}

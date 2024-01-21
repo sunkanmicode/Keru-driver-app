@@ -14,6 +14,7 @@ const CELL_COUNT = 6;
 const VerifyAccountScreen = () => {
   const navigation = useNavigation();
   const [value, setValue] = React.useState("");
+  const [enableMask, setEnableMask] = React.useState(true);
   const [isFull, setIsFull] = React.useState(false);
   const ref = useBlurOnFulfill({ value, cellCount: CELL_COUNT });
   const [props, getCellOnLayoutHandler] = useClearByFocusCell({
@@ -28,6 +29,27 @@ const VerifyAccountScreen = () => {
       navigation.navigate("SelectvehicleType")
     }
   };
+
+
+  
+
+    const renderCell = ({ index, symbol, isFocused }) => {
+    const textChild = symbol ? (enableMask ? '*' : symbol) : isFocused ? <Cursor /> : null;
+
+    return (
+      <Text
+        key={index}
+            className="h-[50px] w-[50px]  bg-[#F5F5F5] rounded-[6px] text-center p-2 text-[24px]"
+        onLayout={getCellOnLayoutHandler(index)}
+      >
+        {textChild}
+      </Text>
+    );
+  };
+
+
+
+
 
   return (
     <View className="flex-1 bg-white p-6">
@@ -56,6 +78,7 @@ const VerifyAccountScreen = () => {
           ref={ref}
           {...props}
           value={value}
+          secureTextEntry={true}
           //   onChangeText={setValue}
           onChangeText={(code) => {
             setValue(code);
@@ -64,16 +87,19 @@ const VerifyAccountScreen = () => {
           cellCount={CELL_COUNT}
           //   rootStyle={styles.codeFiledRoot}
           keyboardType="number-pad"
-          renderCell={({ index, symbol, isFocused }) => (
-            <Text
-              key={index}
-              //   style={[styles.cell, isFocused && styles.focusCell]}
-              className="h-[50px] w-[50px]  bg-[#F5F5F5] rounded-[6px] text-center p-2 text-[24px]"
-              onLayout={getCellOnLayoutHandler(index)}
-            >
-              {symbol || (isFocused ? <Cursor /> : null)}
-            </Text>
-          )}
+          renderCell={renderCell}
+          
+          // renderCell={({ index, symbol, isFocused }) => (
+          //   <Text
+          //     key={index}
+          //     //   style={[styles.cell, isFocused && styles.focusCell]}
+          //     // className="h-[50px] w-[50px]  bg-[#F5F5F5] rounded-[6px] text-center p-2 text-[24px]"
+          //     className="h-[50px] w-[50px]  bg-red-400 rounded-[6px] text-center p-2 text-[24px]"
+          //     onLayout={getCellOnLayoutHandler(index)}
+          //   >
+          //     {symbol || (isFocused ? <Cursor /> : null)}
+          //   </Text>
+          // )}
         />
       </View>
     </View>

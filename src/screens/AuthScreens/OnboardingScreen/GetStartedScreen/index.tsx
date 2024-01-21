@@ -20,25 +20,26 @@ const GetStartedScreen = () => {
             />
           </View>
         </View>
-        <View className="h-[300] mt-24 p-10 bg-white">
-          <View className="w-[318px] mb-[22px] ">
-            <Text className="text-[26px] font-[600] font-[Archivo] leading-[37px]">
+        <View className=" mt-24 p-10 bg-white">
+          <View className=" self-center mb-[22px] ">
+            <Text className=" text-2xl font-semibold font-[Archivo]">
               Welcome to Keru
             </Text>
           </View>
 
-          <View className="w-[335px] h-[54px] ">
-            <Text className=" text-[13px] font-[400] font-[Archivo] leading-[18px]">
-              A marketplace that links the very best of the logistic industry’s
-              Vehicles and equipment, experience, and people, all to serve the
-              transportation needs in Nigeria.
+          <View className=" h-[54px] ">
+            <Text className=" text-sm font-normal text-[#434343] text-center font-[Archivo]">
+              Your platform to move goods and everything in between
             </Text>
           </View>
           <View className="mt-[40px]">
             <View className="flex-row">
-              <TouchableOpacity className=" flex-1 h-[55px] rounded-full bg-[#BAAFE9] justify-center items-center bg-transparent border border-[#BAAFE9]" onPress={()=>{
-                navigation.navigate("Register");
-              }}>
+              <TouchableOpacity
+                className=" flex-1 h-[55px] rounded-full bg-[#BAAFE9] justify-center items-center bg-transparent border border-[#BAAFE9]"
+                onPress={() => {
+                  navigation.navigate("Register");
+                }}
+              >
                 <Text className="text-[14px] font-[500] font-[Archivo] leading-[18px] text-[#BAAFE9]">
                   Get Started
                 </Text>

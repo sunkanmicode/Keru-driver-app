@@ -2,7 +2,7 @@ import { View, Text, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { AntDesign, Octicons } from "@expo/vector-icons";
-import { KycIcon } from "../../../helper/Icons";
+import { KycIcon } from "../../../helper/CustomIcon/Icons";
 import { CustomButton } from "../../customsComp/Input";
 
 const CompleteyourProfileComp = ({

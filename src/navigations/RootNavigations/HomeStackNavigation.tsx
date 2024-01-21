@@ -34,12 +34,6 @@ import AddBankDetails from "../../components/mainComp/KYCComp/CompleteProfileFor
 const HomeStack = createNativeStackNavigator();
 
 const HomeStackNavigation = () => {
-
-
- 
-
-
-
   
   return (
     <HomeStack.Navigator>

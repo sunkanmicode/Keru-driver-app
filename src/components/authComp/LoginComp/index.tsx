@@ -30,7 +30,7 @@ const LoginComp = ({
   const { handleSubmit } = useForm<formData>();
 
   const onsubmit = (data) => {
-    console.log(data, "kkkkkk");
+    // console.log(data, "kkkkkk");
     setIsLoggedIn(true)
   };
 

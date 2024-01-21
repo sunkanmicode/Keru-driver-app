@@ -1,79 +1,96 @@
 import React from "react";
 import { View, Text, TouchableOpacity, ScrollView } from "react-native";
-import { AntDesign } from "@expo/vector-icons";
-import { Ionicons } from "@expo/vector-icons";
-import Contianer from "../../customsComp/Container";
-import CustomInput, { CustomButton } from "../../customsComp/Input";
+import { Ionicons, AntDesign } from "@expo/vector-icons";
+import CustomInput from "../../customsComp/Input";
 import { useNavigation } from "@react-navigation/native";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
+import { CustomButton } from "../../customsComp/CustomButton";
 
 type LoginType = {
   isSecureEntry: boolean;
   setIsSecureEntry: (isSecureEntry: boolean) => void;
+  onsubmit: (data: unknown) => void;
 };
-
 type formData = {
   email: string;
   password: string;
   onPress: () => void;
 };
 
-const RegisterComp = ({ isSecureEntry, setIsSecureEntry }: LoginType) => {
-  const navigation = useNavigation()
-  const { handleSubmit } = useForm<formData>();
 
-  const onsubmit = (data) => {
-    console.log(data, "kkkkkk");
-  };
+const RegisterComp = ({
+  isSecureEntry,
+  setIsSecureEntry,
+  onsubmit,
+}: LoginType) => {
+  const navigation = useNavigation();
+  const {
+    register,
+    handleSubmit,
+    setError,
+    formState: { errors },
+  } = useForm<formData>();
 
   return (
-    <View className="flex-1 bg-white p-6">
-      <View className="py-6 mb-10">
-        {/* <TouchableOpacity>
-          <AntDesign name="arrowleft" size={24} color="black" />
-        </TouchableOpacity> */}
-        <View className="mt-5 mb-10">
-          <Text className="font-[Archivo] font-[700] text-[29px] leading-[37px]">
-            Create an account
-          </Text>
-          <Text className="font-[Archivo] font-[400] text-[12px] leading-[23px]">
-            Already a member? { }
-            <Text
-              className="text-[#BAAFE9]"
-              onPress={() => {
-                navigation.navigate("Login");
-              }}
-            >
-              Login here
+    <>
+      <View className="flex-1 bg-white p-6">
+        <View className="py-6 ">
+          <TouchableOpacity
+            onPress={() => {
+              navigation.goBack();
+            }}
+          >
+            <AntDesign name="arrowleft" size={24} color="black" />
+          </TouchableOpacity>
+          <View className="mt-5">
+            <Text className="font-[Archivo] font-[700] text-[29px] leading-[37px]">
+              Create an account
             </Text>
-          </Text>
-        </View>
-        <ScrollView
-          showsVerticalScrollIndicator={false}
-          className="h-[600] mb-10"
-        >
-          <View>
+            <Text className="font-[Archivo] font-[400] text-[12px] leading-[23px]">
+              Already a member? {}
+              <Text
+                className="text-[#BAAFE9]"
+                onPress={() => {
+                  navigation.navigate("Login");
+                }}
+              >
+                Login here
+              </Text>
+            </Text>
+          </View>
+          <ScrollView showsVerticalScrollIndicator={false} className="">
             <CustomInput
-            primary
+              primary
               label="First Name"
               placeholder="Jena"
               name="firstName"
             />
-            <CustomInput primary label="Last Name" placeholder="Jena" name="lastName" />
             <CustomInput
-            primary
+              primary
+              label="Last Name"
+              placeholder="Jena"
+              name="lastName"
+            />
+            <CustomInput
+              primary
               label="Email Address"
               placeholder="example@gmail.com"
               name="email"
             />
             <CustomInput
-            primary
+              primary
               label="Phone Number"
               placeholder="Enter your phone Number"
               name="phoneNumber"
             />
             <CustomInput
-            primary
+              primary
+              label="NIN"
+              placeholder="Enter your phone Number"
+              name="phoneNumber"
+            />
+            <CustomInput
+              primary
               label="Password"
               placeholder="Enter your password"
               iconPostion="right"
@@ -82,7 +99,7 @@ const RegisterComp = ({ isSecureEntry, setIsSecureEntry }: LoginType) => {
               icon={
                 <TouchableOpacity
                   onPress={() => {
-                    setIsSecureEntry((prev: boolean) => !prev);
+                    setIsSecureEntry(!isSecureEntry);
                   }}
                 >
                   {/* <FontAwesome5 name="eye" size={24} color="black" /> */}
@@ -99,23 +116,25 @@ const RegisterComp = ({ isSecureEntry, setIsSecureEntry }: LoginType) => {
                 </TouchableOpacity>
               }
             />
-          </View>
-          <Text className="font-[Archivo] font-[400] text-[12px] leading-[23px] mb-10">
-            I agree with Keru’s{" "}
-            <Text className="text-[#007FFF]">Privacy Policy </Text>
-            and <Text className="text-[#007FFF]">Terms & Conditions?</Text>
-          </Text>
-
-          <CustomButton
-            primary
-            title="Create account"
-            onPress={() => {
-              navigation.navigate("VerifyAccountScreen");
-            }}
-          />
-        </ScrollView>
+          </ScrollView>
+        </View>
       </View>
-    </View>
+      <View className="p-5 bg-white">
+        <Text className="font-[Archivo] font-[400] text-[12px] leading-[23px]">
+          I agree with Keru’s{" "}
+          <Text className="text-[#007FFF]">Privacy Policy </Text>
+          and <Text className="text-[#007FFF]">Terms & Conditions?</Text>
+        </Text>
+        <CustomButton
+          primary
+          title="Create account"
+          // onPress={() => {
+          //   navigation.navigate("VerifyAccountScreen");
+          // }}
+          onPress={handleSubmit(onsubmit)}
+        />
+      </View>
+    </>
   );
 };
 

@@ -3,12 +3,13 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginScreen from "../screens/AuthScreens/LoginScreen";
 import RegisterScreen from "../screens/AuthScreens/RegisterScreen";
 import OnboardingScreen from "../screens/AuthScreens/OnboardingScreen";
-import ForgotPasswordScreen from "../screens/AuthScreens/ForgotPasswordScreen";
-import VerifyAccountScreen from "../screens/AuthScreens/VerifyAccountScreen";
+import ForgotPasswordScreen from "../components/authComp/RegisterComp/ForgotPasswordScreen";
+import VerifyAccountScreen from "../components/authComp/RegisterComp/VerifyAccountScreen";
 import { AuthStackParamList } from "./navigationTypes";
 import AccountCreatedScreen from "../screens/AuthScreens/AccountCreatedScreen";
 import GetStartedScreen from "../screens/AuthScreens/OnboardingScreen/GetStartedScreen";
-import SelectvehicleType from "../components/authComp/RegisterComp/SeleectVehicleTypeComp";
+import SelectvehicleType from "../components/authComp/RegisterComp/SelectVehicleTypeComp";
+import TransactionPinScreen from "../components/authComp/RegisterComp/TransactionPIn";
 // import ResetPasswordScreen from "../screens/AuthScreens/ResetPaswwordScreen";
 // import { AuthStackParamList } from "../types/navigations";
 
@@ -25,7 +26,6 @@ const AuthNavigation = ()=>{
           name="GetStartedScreen"
           component={GetStartedScreen}
         />
-
         <AuthStack.Screen name="Register" component={RegisterScreen} />
         <AuthStack.Screen name="Login" component={LoginScreen} />
         <AuthStack.Screen
@@ -36,7 +36,6 @@ const AuthNavigation = ()=>{
           name="AccountCreatedScreen"
           component={AccountCreatedScreen}
         />
-
         <AuthStack.Screen
           name="ForgotPassword"
           component={ForgotPasswordScreen}
@@ -44,6 +43,10 @@ const AuthNavigation = ()=>{
         <AuthStack.Screen
           name="SelectvehicleType"
           component={SelectvehicleType}
+        />
+        <AuthStack.Screen
+          name="TransactionPinScreen"
+          component={TransactionPinScreen}
         />
       </AuthStack.Navigator>
     );

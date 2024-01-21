@@ -6,6 +6,8 @@ import Footer from "./Footer";
 
 const { width, height } = Dimensions.get("window");
 
+console.log({ width, height });
+
 const OnboardingScreen = () => {
   const navigation = useNavigation();
   const [currentSlideIndex, setCurrentSlideIndex] = React.useState(0);
@@ -34,7 +36,7 @@ const OnboardingScreen = () => {
 
   return (
     <>
-      <View className=" flex-1 bg-white p-[30px] ">
+      <View className=" flex-1 bg-white p-8 " style={{width}}>
         <View className={` mt-[71px] w-[122px] h-[54px] mx-auto mb-3`}>
           <Image
             source={require("../../../../assets/images/keru_logo.png")}
@@ -45,7 +47,7 @@ const OnboardingScreen = () => {
             }}
           />
         </View>
-        <View className="">
+        <View className="flex-1">
           <FlatList
             ref={ref}
             horizontal

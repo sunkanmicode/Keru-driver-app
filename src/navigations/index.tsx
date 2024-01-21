@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import AuthNavigation from "./AuthNavigation";
-import HomeNavigation from "./HomeNavigation";
 import useAuthStore from "../stores/authStore";
+import TabNavigation from "./TabNavigation";
 
 const AppNavigation = () => {
   const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
@@ -14,7 +14,7 @@ const AppNavigation = () => {
   }, [isLoggedIn]);
   return (
     <NavigationContainer>
-      {isAuthenticated ? <HomeNavigation /> : <AuthNavigation />}
+      {isAuthenticated ? <TabNavigation /> : <AuthNavigation />}
     </NavigationContainer>
   );
 };

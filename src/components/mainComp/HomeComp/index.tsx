@@ -1,7 +1,7 @@
 import React from "react";
 import { View, ScrollView, Text, TouchableOpacity, TextInput, Image } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { VehicleIcon } from "../../../helper/Icons";
+import { VehicleIcon } from "../../../helper/CustomIcon/Icons";
 import { Feather } from "@expo/vector-icons";
 import HomeHeaderComp from "./HomeHeaderComp";
 import QuickLink from "./QuickLink";

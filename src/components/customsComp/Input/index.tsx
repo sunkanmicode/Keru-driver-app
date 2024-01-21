@@ -5,12 +5,9 @@ import {
   TextInput,
   TouchableOpacity,
   ActivityIndicator,
+  KeyboardTypeOptions,
 } from "react-native";
-import { useForm, Controller } from "react-hook-form";
 
-// type FormName = {
-//   name: FieldPath;
-// };
 
 type InputType = {
   label?: string;
@@ -66,7 +63,7 @@ InputType) => {
   };
   return (
     <>
-      <View className="py-3">
+      <View className="py-1">
         {label && (
           <Text className="mb-2 font-[400] text-[12px]  font-[Archivo] leading-[13]">
             {label}
@@ -79,7 +76,7 @@ InputType) => {
           <TextInput
             secureTextEntry={secureTextEntry}
             placeholder={placeholder}
-            keyboardType={keyboardType}
+            keyboardType={keyboardType as KeyboardTypeOptions}
             onBlur={() => {
               setFocused(false);
             }}

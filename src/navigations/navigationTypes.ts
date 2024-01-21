@@ -7,7 +7,8 @@ export type AuthStackParamList = {
   AccountCreatedScreen: undefined;
   GetStartedScreen: undefined;
   SelectvehicleType: undefined;
-  
+  TransactionPinScreen: undefined;
+
   //   ResetPassword: undefined;
 };
 
