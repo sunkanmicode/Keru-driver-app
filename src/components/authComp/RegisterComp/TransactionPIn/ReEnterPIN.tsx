@@ -11,7 +11,7 @@ import {
 
 const CELL_COUNT = 4;
 
-const TransactionPinScreen = () => {
+const ReEnterPIN = () => {
   const navigation = useNavigation();
   const [value, setValue] = React.useState("");
   const [enableMask, setEnableMask] = React.useState(true);
@@ -25,8 +25,8 @@ const TransactionPinScreen = () => {
   const handleFulfill = (code) => {
     if (code.length === CELL_COUNT) {
       setIsFull(true);
-      // navigation.navigate("AccountCreatedScreen");
-      navigation.navigate("ReEnterPIN");
+      navigation.navigate("AccountCreatedScreen");
+    //   navigation.navigate("SelectvehicleType");
     }
   };
 
@@ -124,4 +124,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TransactionPinScreen;
+export default ReEnterPIN;

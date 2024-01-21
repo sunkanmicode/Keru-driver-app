@@ -8,6 +8,7 @@ export type AuthStackParamList = {
   GetStartedScreen: undefined;
   SelectvehicleType: undefined;
   TransactionPinScreen: undefined;
+  ReEnterPIN: undefined
 
   //   ResetPassword: undefined;
 };

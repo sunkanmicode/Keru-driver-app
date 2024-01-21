@@ -25,7 +25,7 @@ const SelectvehicleType = () => {
     ];
   return (
     <>
-      <View className="flex-[.95] bg-white p-6">
+      <View className="flex-1 bg-white p-6">
         <View className="py-6">
           <TouchableOpacity
             onPress={() => {
@@ -45,12 +45,13 @@ const SelectvehicleType = () => {
         </View>
         <CustomDropdown setSelected={setSelected} data={data} />
       </View>
-      <View>
+      <View className="p-5 bg-white">
         <CustomButton
           primary
-          title="Continue34"
+          title="Continue"
           onPress={() => {
-            navigation.navigate("AccountCreatedScreen");
+            // navigation.navigate("AccountCreatedScreen");
+            navigation.navigate("TransactionPinScreen");
           }}
         />
       </View>

@@ -10,6 +10,7 @@ import AccountCreatedScreen from "../screens/AuthScreens/AccountCreatedScreen";
 import GetStartedScreen from "../screens/AuthScreens/OnboardingScreen/GetStartedScreen";
 import SelectvehicleType from "../components/authComp/RegisterComp/SelectVehicleTypeComp";
 import TransactionPinScreen from "../components/authComp/RegisterComp/TransactionPIn";
+import ReEnterPIN from "../components/authComp/RegisterComp/TransactionPIn/ReEnterPIN";
 // import ResetPasswordScreen from "../screens/AuthScreens/ResetPaswwordScreen";
 // import { AuthStackParamList } from "../types/navigations";
 
@@ -48,6 +49,7 @@ const AuthNavigation = ()=>{
           name="TransactionPinScreen"
           component={TransactionPinScreen}
         />
+        <AuthStack.Screen name="ReEnterPIN" component={ReEnterPIN} />
       </AuthStack.Navigator>
     );
 
